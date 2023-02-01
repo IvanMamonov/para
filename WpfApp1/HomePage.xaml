@@ -9,37 +9,22 @@
       Title="HomePage">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="0.5*"/>
-        </Grid.RowDefinitions>
-
-        <TextBlock Text="Ручки" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20"/>
-        <TextBlock Text="Поставщик: " Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" FontSize="20"/>
-        <ComboBox Name="cb_supplier" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Width="200"/>
-
-        <ListView x:Name="lv_productInake" ItemsSource="{Binding intakeProducts}" Grid.Row="2" Grid.RowSpan="5" Grid.Column="0" Grid.ColumnSpan="4">
-            <ListView.View>
+        <ListView  x:Name="StudToShow" ItemsSource="{Binding Pen}" Margin="5,40,5,0">
+            <ListView.View >
                 <GridView>
-                    <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="Тип" DisplayMemberBinding="{Binding ProductId.Name}"/>
-                    <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Count}">
+                    <GridViewColumn Header="№" Width="30" DisplayMemberBinding="{Binding id}" />
+
+                    <GridViewColumn Width="300"  Header="Тип" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox x:Name="tb_count"/>
+                                <TextBlock FontSize="25" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"  Text="{Binding TypePen.Name}"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="300"  Header="Цена" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="25" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"  Text="{Binding Price}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

@@ -21,9 +21,13 @@ namespace WpfApp1
     /// </summary>
     public partial class HomePage : Page
     {
+        public static ObservableCollection<Pen> pens { get; set; }
+        public static ObservableCollection<TypePen> types { get; set; }
         public HomePage()
         {
             InitializeComponent();
+            pens = new ObservableCollection<Pen>(db_connection.conection.Pen.ToList());
+            types = new ObservableCollection<TypePen>(db_connection.conection.TypePen.ToList());
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
