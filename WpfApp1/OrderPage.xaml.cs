@@ -17,15 +17,14 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Логика взаимодействия для HomePage.xaml
+    /// Логика взаимодействия для Orders.xaml
     /// </summary>
-    public partial class HomePage : Page
+    public partial class OrderPage : Page
     {
-        public HomePage()
+        public OrderPage()
         {
             InitializeComponent();
         }
-
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
 
