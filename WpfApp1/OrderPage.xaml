@@ -9,6 +9,57 @@
       Title="Orders">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Заказ" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20"/>
+        <TextBlock Text="Поставщик: " Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" FontSize="20"/>
+        <ComboBox Name="cb_supplier" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Width="200"/>
+
+        <ListView x:Name="lv_productInake" ItemsSource="{Binding intakeProducts}" Grid.Row="2" Grid.RowSpan="5" Grid.Column="0" Grid.ColumnSpan="4">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding ProductId.Name}"/>
+                    <GridViewColumn Header="Количество" DisplayMemberBinding="{Binding Count}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox x:Name="tb_count"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Закупочная цена" DisplayMemberBinding="{Binding PriceUnit}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox x:Name="tb_price"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Сумма">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock x:Name="tb_allPrice"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
         <Menu VerticalAlignment="Top" HorizontalAlignment="Left" Background="Blue" Width="30">
             <MenuItem Header="≡" Foreground="White" Width="30" Height="30" Click="MenuItem_Click">
                 <MenuItem Header="Pen" Background="Blue" Click="MenuItem_Click_1"/>

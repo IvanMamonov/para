@@ -29,16 +29,16 @@ namespace WpfApp1
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //user = new ObservableCollection<User>(db_connection.conection.User.ToList());
-            //var z = user.Where(s => s.Login == txt_login.Text && s.Password == txt_passwors.Password).FirstOrDefault();
-            //if (z != null)
+            user = new ObservableCollection<User>(db_connection.conection.User.ToList());
+            var z = user.Where(s => s.Login == txt_login.Text && s.Password == txt_passwors.Password).FirstOrDefault();
+            if (z != null)
             {
                 NavigationService.Navigate(new HomePage());
             }
-            //else
-            //{
-            //    MessageBox.Show("логин или пароль не верные", "error", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
+            else
+            {
+                MessageBox.Show("логин или пароль не верные", "error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
